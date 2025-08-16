@@ -35,7 +35,6 @@ class _GlobalConnectivityListenerState
           return;
         }
 
-        // Show snackbar only if state changes
         if (state is ConnectivityOffline &&
             _previousState is! ConnectivityOffline) {
           messenger.showSnackBar(

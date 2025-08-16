@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../constants/colors.dart';
+import 'app_text_styles.dart';
 
 class Styles {
   static ThemeData themeData(BuildContext context, {bool isDarkTheme = false}) {
@@ -26,84 +26,55 @@ class Styles {
       scaffoldBackgroundColor: isDarkTheme ? Colors.black : kBackgroundColor,
       hintColor: Colors.grey.withOpacity(0.6),
       indicatorColor: kPrimaryColor,
-      fontFamily: "Poppins",
+      useMaterial3: true,
 
-      // Text Theme
+      // ✅ Link TextTheme with AppTextStyles
       textTheme: TextTheme(
-        displayLarge: TextStyle(
-          fontSize: 24.sp,
-          fontWeight: FontWeight.bold,
-          fontFamily: "Lato",
-          color: isDarkTheme ? Colors.white : Colors.black,
+        displayLarge: AppTextStyles.h1.copyWith(
+          color: isDarkTheme ? Colors.white : AppTextStyles.h1.color,
         ),
-        displayMedium: TextStyle(
-          fontSize: 22.sp,
+        displayMedium: AppTextStyles.h2.copyWith(
+          color: isDarkTheme ? Colors.white : AppTextStyles.h2.color,
+        ),
+        headlineLarge: AppTextStyles.h3.copyWith(
+          color: isDarkTheme ? Colors.white : AppTextStyles.h3.color,
+        ),
+        titleLarge: AppTextStyles.h3.copyWith(
           fontWeight: FontWeight.w600,
-          fontFamily: "Lato",
-          color: isDarkTheme ? Colors.white : Colors.black,
+          color: isDarkTheme ? Colors.white : kAppbarPrimaryColor,
         ),
-        headlineLarge: TextStyle(
-          fontSize: 20.sp,
-          fontWeight: FontWeight.w500,
-          fontFamily: "Lato",
-          color: isDarkTheme ? Colors.white : Colors.black,
+        bodyLarge: AppTextStyles.body1.copyWith(
+          color: isDarkTheme ? Colors.white70 : AppTextStyles.body1.color,
         ),
-        titleLarge: TextStyle( // AppBar title style
-          fontSize: 18.sp,
-          fontWeight: FontWeight.w600,
-          fontFamily: "Poppins",
-          color: isDarkTheme ? Colors.white : Colors.black,
+        bodyMedium: AppTextStyles.body2.copyWith(
+          color: isDarkTheme ? Colors.white70 : AppTextStyles.body2.color,
         ),
-        bodyLarge: TextStyle(
-          fontSize: 16.sp,
-          fontWeight: FontWeight.normal,
-          fontFamily: "Roboto",
-          color: isDarkTheme ? Colors.white70 : Colors.black87,
-        ),
-        bodyMedium: TextStyle(
-          fontSize: 14.sp,
-          fontWeight: FontWeight.normal,
-          fontFamily: "Roboto",
-          color: isDarkTheme ? Colors.white70 : Colors.black87,
-        ),
-        labelLarge: TextStyle(
-          fontSize: 16.sp,
-          fontWeight: FontWeight.bold,
-          fontFamily: "Poppins",
-          color: Colors.white,
-        ),
-        bodySmall: TextStyle(
-          fontSize: 14.sp,
-          fontWeight: FontWeight.normal,
-          fontFamily: "Poppins",
-          color: isDarkTheme ? Colors.white70 : Colors.black87,
+        labelLarge: AppTextStyles.button,
+        bodySmall: AppTextStyles.body2.copyWith(
           height: 1.5,
+          color: isDarkTheme ? Colors.white70 : AppTextStyles.body2.color,
         ),
-        labelSmall: TextStyle(
-          fontSize: 12.sp,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Poppins",
-          color: Colors.grey,
-        ),
+        labelSmall: AppTextStyles.caption,
       ),
 
       colorScheme: ColorScheme.fromSwatch(
         primarySwatch: MaterialColor(kPrimaryColor.value, color),
         brightness: isDarkTheme ? Brightness.dark : Brightness.light,
+      ).copyWith(
+        secondary: kSecondaryColor, // ✅ Fresh green accent
       ),
 
-      // AppBar Theme
+      // ✅ AppBar Theme
       appBarTheme: AppBarTheme(
         backgroundColor: isDarkTheme ? Colors.grey[900] : kAppbarBackgroundColor,
         elevation: 0.0,
         iconTheme: IconThemeData(
           color: isDarkTheme ? Colors.white : kPrimaryColor,
         ),
-        titleTextStyle: TextStyle(
-          color: isDarkTheme ? Colors.white : Colors.black,
-          fontFamily: "Poppins",
+        titleTextStyle: AppTextStyles.h3.copyWith(
           fontSize: 18.sp,
           fontWeight: FontWeight.w600,
+          color: isDarkTheme ? Colors.white : kAppbarPrimaryColor,
         ),
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: Colors.transparent,
@@ -129,34 +100,37 @@ class Styles {
 
       switchTheme: SwitchThemeData(
         thumbColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) => states.contains(WidgetState.selected) ? kPrimaryColor : null,
+              (states) =>
+          states.contains(WidgetState.selected) ? kPrimaryColor : null,
         ),
         trackColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) => states.contains(WidgetState.selected) ? kPrimaryColor : null,
+              (states) => states.contains(WidgetState.selected)
+              ? kPrimaryColor.withOpacity(0.4)
+              : null,
         ),
       ),
 
       checkboxTheme: CheckboxThemeData(
         fillColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) => states.contains(WidgetState.selected) ? kPrimaryColor : null,
+              (states) =>
+          states.contains(WidgetState.selected) ? kPrimaryColor : null,
         ),
       ),
 
       radioTheme: RadioThemeData(
         fillColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) => states.contains(WidgetState.selected) ? kPrimaryColor : null,
+              (states) =>
+          states.contains(WidgetState.selected) ? kPrimaryColor : null,
         ),
       ),
 
       scrollbarTheme: ScrollbarThemeData(
         thumbColor: WidgetStateProperty.all(kPrimaryColor),
         trackColor: WidgetStateProperty.all(
-            isDarkTheme ? Colors.white24 : kAppbarPrimaryColor),
+            isDarkTheme ? Colors.white24 : kAppbarPrimaryColor.withOpacity(0.2)),
         thickness: WidgetStateProperty.all(8),
         radius: const Radius.circular(10),
       ),
-
-      useMaterial3: true,
 
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(

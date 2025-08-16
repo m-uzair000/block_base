@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/language/language_bloc.dart';
+import '../../../core/widgets/custom_appbar.dart';
 import '../../../core/widgets/loader/loader_helper.dart';
 import '../../../core/widgets/theme_toggle_button.dart';
 
@@ -14,7 +15,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: CustomAppBar(
         title: Text("home".trans(context)),
         centerTitle: true,
         actions: const [
