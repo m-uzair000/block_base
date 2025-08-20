@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => LoaderBloc()),
       ],
       child: ScreenConfigInit(
+        // allowResponsive:true,
         child: BlocBuilder<ThemeBloc, ThemeState>(
           builder: (context, themeState) {
             return BlocBuilder<LanguageBloc, LanguageState>(

@@ -4,13 +4,11 @@ class Responsive extends StatelessWidget {
   final Widget mobile;
   final Widget tablet;
   final Widget desktop;
-  final bool paddingReq;
   const Responsive({
     super.key,
     required this.mobile,
     required this.tablet,
     required this.desktop,
-    this.paddingReq = true,
   });
 
   static bool isMobile(BuildContext context) =>
