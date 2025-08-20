@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
+
+import '../core/constants/colors.dart';
 
 class CustomOutlinedButton extends StatelessWidget {
   final VoidCallback? onPressed;

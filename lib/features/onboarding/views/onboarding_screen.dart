@@ -1,9 +1,9 @@
+import 'package:block_base/core/services/screen_config/screen_config_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/constants/colors.dart';
-import '../../../core/widgets/glass_container.dart';
+import '../../../widgets/glass_container.dart';
 import '../../home/views/home.dart';
 import '../block/onboarding_bloc.dart';
 import '../block/onboarding_event.dart';

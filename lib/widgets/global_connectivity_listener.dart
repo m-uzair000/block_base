@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../services/connectivity/connectivity_bloc.dart';
-import '../services/connectivity/connectivity_state.dart';
+import '../core/services/connectivity/connectivity_bloc.dart';
+import '../core/services/connectivity/connectivity_state.dart';
 
 class GlobalConnectivityListener extends StatefulWidget {
   final Widget child;

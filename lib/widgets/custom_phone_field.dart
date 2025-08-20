@@ -1,10 +1,10 @@
-import 'package:block_base/utils/extensions.dart';
+import 'package:block_base/core/extensions/language_extensions.dart';
+import 'package:block_base/core/services/screen_config/screen_config_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../constants/colors.dart';
-import '../constants/inpu_border_consts.dart';
-import '../theme/app_text_styles.dart';
+import '../core/constants/colors.dart';
+import '../core/constants/inpu_border_consts.dart';
+import '../core/theme/app_text_styles.dart';
 import 'phone_field/country_picker_dialog.dart';
 import 'phone_field/intl_phone_field.dart';
 

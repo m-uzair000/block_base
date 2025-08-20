@@ -1,68 +1,22 @@
-import 'package:block_base/utils/extensions.dart';
+import 'package:block_base/core/extensions/language_extensions.dart';
+import 'package:block_base/core/services/screen_config/screen_config_extensions.dart';
+import 'package:block_base/features/home/views/desktop/home_desktop.dart';
+import 'package:block_base/features/home/views/mobile/home_mobile.dart';
+import 'package:block_base/utils/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../core/language/language_bloc.dart';
-import '../../../core/widgets/custom_appbar.dart';
-import '../../../core/widgets/loader/loader_helper.dart';
-import '../../../core/widgets/theme_toggle_button.dart';
-
+import 'tab/home_tab.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
+
   static const routeName = "/homePage";
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(
-        title: Text("home".trans(context)),
-        centerTitle: true,
-        actions: const [
-          ThemeToggleButton(),
-        ],
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.w),
-              child: ElevatedButton(
-                onPressed: () {
-                  final currentLocale =
-                      context.read<LanguageBloc>().state.locale;
-                  if (currentLocale.languageCode == 'en') {
-                    context
-                        .read<LanguageBloc>()
-                        .add(ChangeLanguage(const Locale('ur')));
-                  } else {
-                    context
-                        .read<LanguageBloc>()
-                        .add(ChangeLanguage(const Locale('en')));
-                  }
-                },
-                child: Text("change_language".trans(context)),
-              ),
-            ),
-            SizedBox(height: 20,),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.w),
-              child: ElevatedButton(
-                onPressed: () {
-                  showLoader(context);
-                  Future.delayed(const Duration(seconds: 3), () {
-                    if (context.mounted) {
-                      hideLoader(context);
-                    }
-                  });
-                },
-                child: const Text("Show Loader"),
-              ),
-            ),
-          ],
-        ),
-      ),
+    return Responsive(
+      mobile: HomeMobile(),
+      tablet: HomeTab(),
+      desktop: HomeDesktop(),
     );
   }
 }

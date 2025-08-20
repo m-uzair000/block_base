@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../core/language/language_loader.dart';
+import '../language/language_loader.dart';
 
 extension TranslateX on String {
   String trans(BuildContext context) {

@@ -1,6 +1,6 @@
+import 'package:block_base/core/services/screen_config/screen_config_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/colors.dart';
 import 'app_text_styles.dart';
 

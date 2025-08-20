@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../theme/theme_bloc.dart';
-import '../theme/theme_event.dart';
-import '../theme/theme_state.dart';
+import '../core/theme/theme_bloc.dart';
+import '../core/theme/theme_event.dart';
+import '../core/theme/theme_state.dart';
 
 class ThemeToggleButton extends StatelessWidget {
   const ThemeToggleButton({super.key});
